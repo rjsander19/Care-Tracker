@@ -5,7 +5,9 @@ const methodOverride = require("method-override")
 const { findOneAndUpdate } = require('./models/list')
 const app = express()
 require('dotenv').config()
+const path = require('path');
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(process.env.DATABASE_URL)
 
@@ -77,6 +79,8 @@ app.get('/list/:id', async (req, res) => {
       list: foundList,
     });
   });
+
+
 
 // Listener
 const PORT = process.env.PORT;
