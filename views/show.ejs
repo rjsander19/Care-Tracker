@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    
+        <nav>
+            <a href="/list/">Back to Lists Index</a>
+        </nav>
+
+<div class="container">
+        <p class="title">Title: <%=list.title %></p>
+        <p class="description"> Description: <%= list.description%></p>
+
+</div>
+        <br>
+        <a href="/list/<%=list._id%>/edit">Edit</a>
+    
+</body>
+</html>
