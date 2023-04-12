@@ -2,38 +2,118 @@
     box-sizing: border-box;
   }
   
+
   /* Remove margins and padding from the list */
   ul {
     margin: 0;
     padding: 0;
   }
-  
-  /* Style the list items */
-  ul li {
+
+
+a:link {
     cursor: pointer;
+    color: black; 
     position: relative;
-    padding: 12px 8px 12px 40px;
     background: #eee;
     font-size: 20px;
     transition: 0.2s;
+}
+
+a:visited {
+    cursor: pointer;
+    color: black;
+    position: relative;
+    background: #eee;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+a:hover {
+    cursor: pointer;
+    color: black;
+    position: relative;
+    background: #eee;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+
+
+
+
+  /* Style the list items */
+  #myUL  {
+    cursor: pointer;
+    position: relative;
+    /* padding: 12px 8px 12px 40px; */
+    background: #eee;
+    font-size: 20px;
+    transition: 0.2s;
+    margin-bottom: 5px;
   }
   
   /* Darker background-color on hover */
-  ul li:hover {
+  #myUL :hover {
     background: #ddd;
   }
   
+
   /* Style the header */
   h1 {
     background-color: #c46d5e;
-    padding: 30px 40px;
+    padding: 20px 30px;
     color: white;
     text-align: center;
+    font-size: 42px;
+    font-weight: bold;
   }
   
-  /* Clear floats after the header */
   .header:after {
     content: "";
     display: table;
     clear: both;
   }
+
+  h2 {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 22px;
+  }
+
+
+  
+  /* Style the "Add" button */
+  /* .input {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  } */
+  
+
+
+#new {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+    /* Style the input */
+    .input {
+        margin: 0 auto;
+        border: 3px black solid;
+        border-radius: 0;
+        width: 75%;
+        padding: 10px;
+        float: center;
+        text-align: center;
+        font-size: 16px;
+        background-color: black;
+        color: white;
+      }

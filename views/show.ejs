@@ -14,15 +14,15 @@
     </nav>
 
 <div  id='myDIV' class="header">
-        <h2>Title: <%=list.title %></h2>
+        <h2><%=list.title %></h2>
         <p class="description"> Description: <%= list.description%></p>
-        <input type="text" id="myInput" placeholder="Title...">
+        <input type="text" id="myInput" placeholder="New Task...">
         <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
     <ul id="myUL">
-        <li class="checked">Seed Data</li>
-        <li>More Seed Data</li>
+        <li>Your new task will appear here</li>
+        <li class="checked">Click the task to mark it complete</li>
     </ul>
         
 <br>
@@ -30,7 +30,7 @@
     
 
 <script>
-    // Create a "close" button and append it to each list item
+// Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {

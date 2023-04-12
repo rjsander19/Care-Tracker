@@ -52,11 +52,15 @@ app.put('/list/:id', async (req, res) => {
     res.redirect(`/list/${updatedList._id}`);
   });
 
+
+
+
 // C is for CREATE
 app.post('/list', (req,res) => {
     const createdList = new List(req.body)
     createdList.save().then(res.redirect('/list'))
   })
+
 
 // Edit
   app.get('/list/:id/edit', async (req, res) => {

@@ -9,20 +9,20 @@
 </head>
 <body>
     <h1>Welcome to your Care Tracker!</h1>
-
+    <h2>Your current to-do lists:</h2>
 <% lists.forEach(list => { %>
 
 <ul id="myUL">
-   <li><a href="/list/<%=list._id%>">
-        <%=list.title %> </a></li> 
+    <a href="/list/<%=list._id%>">
+        <%=list.title %> </a>
 </ul>
 
 <% }) %>
+
 </br>
-    <nav>
-        <a href="/list/new"> Add a New List </a>
-    </nav>
-        
+<div class="input">
+        <a href="/list/new" id="new"> Add a New List </a>
+</div>     
     </body>
 </html>
 
