@@ -12,9 +12,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect(process.env.DATABASE_URL)
 
 const db = mongoose.connection
-db.on('error', (err) => console.log(err.message + ' is mongo not running?'));
-db.on('connected', () => console.log('mongo connected'));
-db.on('disconnected', () => console.log('mongo disconnected'));
 
 //Middlewares
 app.use(express.urlencoded({ extended: false }));
@@ -24,7 +21,7 @@ app.use(methodOverride('_method'));
 // INDUCES
 
 // I 
-app.get('/list', async (req, res) => {
+app.get('/', async (req, res) => {
     const allLists = await List.find({}).exec();
     res.render('index.ejs', {
       lists: allLists,
@@ -32,38 +29,38 @@ app.get('/list', async (req, res) => {
   });
 
 // New
-app.get('/list/new', (req, res) => {
+app.get('/new', (req, res) => {
     res.render('new.ejs', { list: {} });
   });
 
 // Delete
-app.delete('/list/:id', async (req, res) => {
+app.delete('/:id', async (req, res) => {
     await List.findByIdAndDelete(req.params.id);
-    res.redirect('/list');
+    res.redirect('/');
   });
 
 // Update
-app.put('/list/:id', async (req, res) => {
+app.put('/:id', async (req, res) => {
     const updatedList = await List.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
     );
-    res.redirect(`/list/${updatedList._id}`);
+    res.redirect(`/${updatedList._id}`);
   });
 
 
 
 
 // C is for CREATE
-app.post('/list', (req,res) => {
+app.post('/', (req,res) => {
     const createdList = new List(req.body)
-    createdList.save().then(res.redirect('/list'))
+    createdList.save().then(res.redirect('/'))
   })
 
 
 // Edit
-  app.get('/list/:id/edit', async (req, res) => {
+  app.get('/:id/edit', async (req, res) => {
       const foundList = await List.findById(req.params.id).exec();
       if (!foundList) {
         res.send('List not found');
@@ -73,7 +70,7 @@ app.post('/list', (req,res) => {
     });
 
 // Show
-app.get('/list/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {
     const foundList = await List.findById(req.params.id).exec();
     if (!foundList) {
       res.send('List not found');
@@ -88,4 +85,7 @@ app.get('/list/:id', async (req, res) => {
 
 // Listener
 const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`server is listening on port: ${PORT}`));
+if (PORT == null || PORT == "") {
+    PORT = 8000;
+  }
+  app.listen(PORT);

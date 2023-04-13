@@ -13,7 +13,7 @@
 <% lists.forEach(list => { %>
 
 <ul id="myUL">
-    <a href="/list/<%=list._id%>">
+    <a href="/<%=list._id%>">
         <%=list.title %> </a>
 </ul>
 
@@ -21,7 +21,7 @@
 
 </br>
 <div class="input">
-        <a href="/list/new" id="new"> Add a New List </a>
+        <a href="/new" id="new"> Add a New List </a>
 </div>     
     </body>
 </html>
