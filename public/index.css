@@ -3,7 +3,6 @@
   }
   
 
-  /* Remove margins and padding from the list */
   ul {
     margin: 0;
     padding: 0;
@@ -37,28 +36,20 @@ a:hover {
     transition: 0.2s;
 }
 
-
-
-
-
-  /* Style the list items */
   #myUL  {
     cursor: pointer;
     position: relative;
-    /* padding: 12px 8px 12px 40px; */
     background: #eee;
     font-size: 20px;
     transition: 0.2s;
     margin-bottom: 5px;
   }
   
-  /* Darker background-color on hover */
   #myUL :hover {
     background: #ddd;
   }
   
 
-  /* Style the header */
   h1 {
     background-color: #c46d5e;
     padding: 20px 30px;
@@ -82,29 +73,12 @@ a:hover {
   }
 
 
-  
-  /* Style the "Add" button */
-  /* .input {
-    padding: 10px;
-    width: 25%;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 0;
-  } */
-  
-
-
 #new {
     background-color: black;
     color: white;
     font-weight: bold;
 }
-    /* Style the input */
+  
     .input {
         margin: 0 auto;
         border: 3px black solid;

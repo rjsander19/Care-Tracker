@@ -2,7 +2,6 @@ const express = require("express")
 const mongoose = require("mongoose")
 const List = require('./models/list')
 const methodOverride = require("method-override")
-// const { findOneAndUpdate } = require('./models/list')
 require('dotenv').config()
 
 mongoose.connect(process.env.DATABASE_URL)
@@ -12,14 +11,11 @@ db.on('error', (err) => console.log(err.message + ' is mongo not running?'));
 db.on('connected', () => console.log('mongo connected'));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
-
 const app = express()
 
 const path = require('path');
 
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
-
 
 //Middlewares
 app.use(express.urlencoded({ extended: false }));
@@ -36,19 +32,18 @@ app.get('/', async (req, res) => {
     });
   });
 
-
 //New
 app.get('/new', (req, res) => {
     res.render('new.ejs', { list: {} });
   });
 
-// // Delete
+// Delete
 app.delete('/:id', async (req, res) => {
     await List.findByIdAndDelete(req.params.id);
     res.redirect('/');
   });
 
-// // Update
+// Update
 app.put('/:id', async (req, res) => {
     const updatedList = await List.findByIdAndUpdate(
       req.params.id,
@@ -58,17 +53,13 @@ app.put('/:id', async (req, res) => {
     res.redirect(`/${updatedList._id}`);
   });
 
-
-
-
-// // C is for CREATE
+// C is for CREATE
 app.post('/', (req,res) => {
     const createdList = new List(req.body)
     createdList.save().then(res.redirect('/'))
   })
 
-
-// // Edit
+//Edit
   app.get('/:id/edit', async (req, res) => {
       const foundList = await List.findById(req.params.id).exec();
       if (!foundList) {
@@ -78,7 +69,7 @@ app.post('/', (req,res) => {
       res.render('edit.ejs', { list: foundList });
     });
 
-// // Show
+// Show
 app.get('/:id', async (req, res) => {
     const foundList = await List.findById(req.params.id).exec();
     if (!foundList) {
@@ -91,12 +82,8 @@ app.get('/:id', async (req, res) => {
   });
 
 
-
 // Listener
 const PORT = process.env.PORT;
-// if (PORT == null || PORT == "") {
-//     PORT = 8000;
-//   }
   app.listen(PORT, () => {
     console.log(`This is ${PORT}`)
   });
