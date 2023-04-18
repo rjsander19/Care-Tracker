@@ -20,7 +20,7 @@
         <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
-    <ul id="myUL">
+    <ul id="UL">
         <li>Your new task will appear here</li>
         <li class="checked">Click the task to mark it complete</li>
     </ul>
@@ -68,7 +68,7 @@ function newElement() {
   if (inputValue === '') {
     alert("Please enter a task");
   } else {
-    document.getElementById("myUL").appendChild(li);
+    document.getElementById("UL").appendChild(li);
   }
   document.getElementById("myInput").value = "";
 

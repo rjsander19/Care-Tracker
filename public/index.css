@@ -36,7 +36,7 @@ a:hover {
     transition: 0.2s;
 }
 
-  #myUL  {
+  #UL  {
     cursor: pointer;
     position: relative;
     background: #eee;
@@ -45,7 +45,7 @@ a:hover {
     margin-bottom: 5px;
   }
   
-  #myUL :hover {
+  #UL :hover {
     background: #ddd;
   }
   
