@@ -38,10 +38,10 @@ app.get('/new', (req, res) => {
   });
 
 // Delete
-app.delete('/:id', async (req, res) => {
-    await List.findByIdAndDelete(req.params.id);
-    res.redirect('/');
-  });
+// app.delete('/:id', async (req, res) => {
+//     await List.findByIdAndDelete(req.params.id);
+//     res.redirect('/');
+//   });
 
 // Update
 app.put('/:id', async (req, res) => {
